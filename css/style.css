@@ -15,6 +15,12 @@
     --charcoal-dark: #1A1A1A;
     --white: #FFFFFF;
     --black: #000000;
+
+    /* NEW: Sage Green Palette */
+    --sage-green: #9DC183;       /* Deeper sage */
+    --light-sage-green: #C8E0B3; /* Lighter, muted sage */
+    --pale-sage: #EBF4E5;        /* Very pale, almost off-white sage */
+    --deep-sage: #7B9B6A;        /* Slightly darker for contrast */
     
     /* Typography */
     --font-serif: 'Playfair Display', serif;
@@ -64,7 +70,7 @@ body {
     font-weight: 400;
     line-height: 1.6;
     color: var(--charcoal);
-    background-color: var(--cream-light); /* Set a light base color */
+    background-color: var(--pale-sage); /* Changed to pale-sage */
     overflow-x: hidden;
 }
 
@@ -95,17 +101,18 @@ body {
 }
 
 /* Background Color Themes */
+/* Changed existing themes to incorporate sage tones for better consistency if used later */
 .theme-cream::before {
-    background: linear-gradient(135deg, rgba(240, 235, 216, 0.4), rgba(247, 243, 233, 0.7));
+    background: linear-gradient(135deg, rgba(235, 244, 229, 0.4), rgba(247, 243, 233, 0.7)); /* Adjusted for sage */
 }
 .theme-gold::before {
-    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(247, 243, 233, 0.6));
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(235, 244, 229, 0.6)); /* Adjusted for sage */
 }
 .theme-terracotta::before {
-    background: linear-gradient(135deg, rgba(193, 123, 90, 0.1), rgba(247, 243, 233, 0.6));
+    background: linear-gradient(135deg, rgba(193, 123, 90, 0.1), rgba(235, 244, 229, 0.6)); /* Adjusted for sage */
 }
 .theme-white::before {
-    background: linear-gradient(135deg, rgba(240, 235, 216, 0.2), rgba(255, 255, 255, 0.5));
+    background: linear-gradient(135deg, rgba(235, 244, 229, 0.2), rgba(255, 255, 255, 0.5)); /* Adjusted for sage */
 }
 
 
@@ -151,7 +158,7 @@ a {
     display: inline-block;
     font-size: 0.875rem;
     font-weight: 500;
-    color: var(--terracotta);
+    color: var(--terracotta); /* Kept terracotta for accent */
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: var(--spacing-sm);
@@ -166,7 +173,7 @@ a {
     transform: translateX(-50%);
     width: 40px;
     height: 2px;
-    background: var(--muted-gold);
+    background: var(--muted-gold); /* Kept muted-gold for accent */
 }
 
 .section-title {
@@ -194,7 +201,7 @@ a {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--terracotta), var(--terracotta-dark));
+    background: linear-gradient(135deg, var(--deep-sage), var(--sage-green)); /* Changed to sage greens */
     color: var(--white);
     box-shadow: var(--shadow-md);
 }
@@ -206,12 +213,12 @@ a {
 
 .btn-secondary {
     background: transparent;
-    color: var(--charcoal-dark);
-    border: 2px solid var(--muted-gold);
+    color: var(--deep-sage); /* Changed to deep sage */
+    border: 2px solid var(--sage-green); /* Changed to sage green */
 }
 
 .btn-secondary:hover {
-    background: var(--muted-gold);
+    background: var(--sage-green); /* Changed to sage green */
     color: var(--white);
     transform: translateY(-2px);
 }
@@ -246,7 +253,7 @@ a {
 
 .navbar-brand span {
     font-size: 0.75rem;
-    color: var(--terracotta);
+    color: var(--sage-green); /* Changed to sage-green */
     font-weight: 300;
     letter-spacing: 2px;
 }
@@ -266,7 +273,7 @@ a {
 }
 
 .nav-link:hover, .nav-link.active {
-    color: var(--terracotta);
+    color: var(--sage-green); /* Changed to sage-green */
 }
 
 .nav-link::after {
@@ -276,7 +283,7 @@ a {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--muted-gold);
+    background: var(--sage-green); /* Changed to sage-green */
     transition: var(--transition-normal);
 }
 
@@ -317,6 +324,22 @@ a {
     z-index: -2;
 }
 
+/* Updated: Logo background for Hero section (single logo, no repeat, centered) */
+.hero-logo-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/Cozy Cove Logo.png');
+    background-repeat: no-repeat; /* Changed to no-repeat */
+    background-position: center; /* Centered the logo */
+    background-size: 300px; /* Adjusted size for a single, larger logo. You can fine-tune this. */
+    opacity: 1.0; /* Very subtle opacity for the single logo */
+    z-index: 1; /* Bottom layer */
+    pointer-events: none;
+}
+
 .hero-image-1, .hero-image-2 {
     position: absolute;
     width: 100%;
@@ -325,39 +348,29 @@ a {
     background-position: center;
 }
 
+/* Updated: Changed gradient to sage green tones */
 .hero-image-1 {
-    background: linear-gradient(135deg, var(--terracotta) 0%, var(--cream) 100%);
+    background: linear-gradient(135deg, var(--light-sage-green) 0%, var(--pale-sage) 100%); /* New sage gradient */
     opacity: 0.8;
+    z-index: 2; /* Sits on top of logo */
 }
 
+/* REMOVED: The grain effect is no longer desired
 .hero-image-2 {
     background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23C17B5A" opacity="0.1"/><circle cx="75" cy="75" r="1.5" fill="%23D4AF37" opacity="0.08"/><circle cx="50" cy="10" r="0.5" fill="%23C17B5A" opacity="0.12"/><circle cx="90" cy="40" r="1" fill="%23D4AF37" opacity="0.06"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
     opacity: 0.6;
+    z-index: 3;
 }
-
-/* NEW: Logo background for Hero section */
-.hero-logo-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('../images/Cozy Cove Logo.png');
-    background-repeat: repeat; /* Repeat the logo to create a pattern */
-    background-size: 150px; /* Adjust size as needed, e.g., 100px, 200px */
-    opacity: 0.03; /* Very subtle opacity */
-    z-index: -3; /* Place it furthest back */
-    pointer-events: none;
-    animation: rotateAndFade 60s linear infinite; /* Optional: subtle animation */
-}
-
-@keyframes rotateAndFade {
-    0% { transform: scale(1) rotate(0deg); opacity: 0.03; }
-    50% { transform: scale(1.05) rotate(10deg); opacity: 0.04; }
-    100% { transform: scale(1) rotate(0deg); opacity: 0.03; }
+*/
+/* NEW: Placeholder for .hero-image-2 to maintain z-index order, but it's empty */
+.hero-image-2 {
+    background: none; /* No background */
+    opacity: 0;      /* Fully transparent */
+    z-index: 3;      /* Still maintains its stacking order, but effectively invisible */
 }
 
 
+/* Updated: Changed overlay to blend with sage tones */
 .hero-overlay {
     position: absolute;
     top: 0;
@@ -366,11 +379,12 @@ a {
     height: 100%;
     background: linear-gradient(
         135deg,
-        rgba(44, 44, 44, 0.4) 0%,
-        rgba(193, 123, 90, 0.2) 50%,
-        rgba(247, 243, 233, 0.8) 100%
+        rgba(44, 44, 44, 0.2) 0%, /* Darker accent for depth */
+        var(--sage-green) 50%,     /* Main sage color */
+        var(--pale-sage) 100%      /* Lighter sage */
     );
-    z-index: -1;
+    opacity: 0.6; /* Adjusted for overall blend */
+    z-index: 4; /* Top layer */
 }
 
 .hero-content {
@@ -392,7 +406,7 @@ a {
     display: block;
     font-size: clamp(1.5rem, 3vw, 2.5rem);
     font-weight: 400;
-    color: var(--terracotta);
+    color: var(--sage-green); /* Changed to sage-green */
     font-style: italic;
 }
 
@@ -435,7 +449,7 @@ a {
 .floating-circle {
     position: absolute;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--muted-gold), var(--gold-light));
+    background: linear-gradient(135deg, var(--sage-green), var(--light-sage-green)); /* Changed to sage greens */
     opacity: 0.1;
     animation: float 12s ease-in-out infinite;
 }
@@ -458,7 +472,7 @@ a {
     width: 0; height: 0;
     border-left: 40px solid transparent;
     border-right: 40px solid transparent;
-    border-bottom: 80px solid var(--terracotta);
+    border-bottom: 80px solid var(--deep-sage); /* Changed to deep-sage */
     opacity: 0.08;
     top: 40%;
     right: 20%;
@@ -477,9 +491,9 @@ a {
 }
 
 /* Base section background colors */
-.about-section, .process-section, .contact-section { background-color: var(--cream); }
+.about-section, .process-section, .contact-section { background-color: var(--pale-sage); } /* Changed to pale-sage */
 .room-showcase, .portfolio-section, .blog-section { background-color: var(--white); }
-.services-section { background-color: var(--cream-light); }
+.services-section { background-color: var(--cream-light); } /* Consider changing this to a sage light tone if needed */
 
 
 .about-content, .contact-content {
@@ -491,7 +505,7 @@ a {
 
 .about-description { font-size: 1.125rem; }
 .about-stats { display: flex; gap: var(--spacing-xl); }
-.stat-number { font-size: 2.5rem; color: var(--terracotta); }
+.stat-number { font-size: 2.5rem; color: var(--sage-green); } /* Changed to sage-green */
 
 .before-after-slider { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-xl); }
 .slider-container { position: relative; height: 500px; cursor: col-resize; }
@@ -499,12 +513,12 @@ a {
 .image-before { background-image: url('../images/living-room-before.png'); }
 .image-after { background-image: url('../images/living-room-after.png'); clip-path: inset(0 50% 0 0); }
 .slider-handle { position: absolute; top: 0; left: 50%; width: 4px; height: 100%; background: var(--white); cursor: col-resize; z-index: 10; transform: translateX(-50%); }
-.slider-button { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50px; height: 50px; background: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-md); color: var(--terracotta); font-size: 1.25rem; }
+.slider-button { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50px; height: 50px; background: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-md); color: var(--sage-green); font-size: 1.25rem; } /* Changed to sage-green */
 
 .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-xl); }
 .service-card { background: var(--white); padding: var(--spacing-2xl); border-radius: var(--radius-lg); text-align: center; box-shadow: var(--shadow-md); transition: all var(--transition-normal); position: relative; }
 .service-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-xl); }
-.service-icon { width: 80px; height: 80px; background: linear-gradient(135deg, var(--terracotta), var(--terracotta-light)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-lg); color: var(--white); font-size: 2rem; }
+.service-icon { width: 80px; height: 80px; background: linear-gradient(135deg, var(--sage-green), var(--light-sage-green)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-lg); color: var(--white); font-size: 2rem; } /* Changed to sage greens */
 
 .portfolio-grid { display: grid; grid-template-columns: repeat(12, 1fr); grid-auto-rows: 300px; gap: var(--spacing-lg); }
 .portfolio-item { position: relative; border-radius: var(--radius-lg); overflow: hidden; cursor: pointer; }
@@ -517,44 +531,44 @@ a {
 .portfolio-img-3 { background-image: url('../images/EB1.png'); }
 .portfolio-img-4 { background-image: url('../images/LL1.png'); }
 .portfolio-item:hover .portfolio-image { transform: scale(1.1); }
-.portfolio-overlay { position: absolute; top: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(44, 44, 44, 0.8), rgba(193, 123, 90, 0.8)); display: flex; align-items: center; justify-content: center; opacity: 0; transition: all var(--transition-normal); }
+.portfolio-overlay { position: absolute; top: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(44, 44, 44, 0.8), rgba(157, 193, 131, 0.8)); /* Changed to sage green */ display: flex; align-items: center; justify-content: center; opacity: 0; transition: all var(--transition-normal); }
 .portfolio-item:hover .portfolio-overlay { opacity: 1; }
 .portfolio-content { text-align: center; color: var(--white); transform: translateY(20px); transition: var(--transition-normal); }
 .portfolio-item:hover .portfolio-content { transform: translateY(0); }
 .portfolio-content h3 { color: var(--white); }
-.portfolio-btn { background: var(--muted-gold); color: var(--charcoal-dark); padding: var(--spacing-sm) var(--spacing-lg); border-radius: var(--radius-xl); font-weight: 500; }
+.portfolio-btn { background: var(--sage-green); color: var(--charcoal-dark); padding: var(--spacing-sm) var(--spacing-lg); border-radius: var(--radius-xl); font-weight: 500; } /* Changed to sage green */
 
 .process-timeline { max-width: 800px; margin: 0 auto; }
 .process-step { display: flex; align-items: center; gap: var(--spacing-xl); margin-bottom: var(--spacing-3xl); }
 .process-step:nth-child(even) { flex-direction: row-reverse; }
-.step-number { flex-shrink: 0; width: 80px; height: 80px; background: linear-gradient(135deg, var(--terracotta), var(--muted-gold)); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700; }
+.step-number { flex-shrink: 0; width: 80px; height: 80px; background: linear-gradient(135deg, var(--deep-sage), var(--sage-green)); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700; } /* Changed to sage greens */
 .step-content { background: var(--white); padding: var(--spacing-xl); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
 
 .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: var(--spacing-xl); }
 .blog-card { background: var(--white); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); transition: all var(--transition-normal); }
 .blog-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-xl); }
 .blog-image { height: 250px; }
-.blog-img-1 { background: linear-gradient(135deg, var(--terracotta-light), var(--cream)); }
-.blog-img-2 { background: linear-gradient(135deg, var(--muted-gold), var(--cream-dark)); }
-.blog-img-3 { background: linear-gradient(135deg, var(--charcoal-light), var(--terracotta-light)); }
+.blog-img-1 { background: linear-gradient(135deg, var(--light-sage-green), var(--pale-sage)); } /* Changed to sage tones */
+.blog-img-2 { background: linear-gradient(135deg, var(--sage-green), var(--cream-dark)); } /* Changed to sage tone */
+.blog-img-3 { background: linear-gradient(135deg, var(--charcoal-light), var(--light-sage-green)); } /* Changed to sage tone */
 .blog-content { padding: var(--spacing-xl); }
-.blog-category { background: var(--cream-dark); color: var(--terracotta); padding: var(--spacing-xs) var(--spacing-md); border-radius: var(--radius-sm); font-size: 0.75rem; text-transform: uppercase; }
-.blog-link { color: var(--terracotta); font-weight: 500; }
+.blog-category { background: var(--cream-dark); color: var(--sage-green); padding: var(--spacing-xs) var(--spacing-md); border-radius: var(--radius-sm); font-size: 0.75rem; text-transform: uppercase; } /* Changed to sage-green */
+.blog-link { color: var(--sage-green); font-weight: 500; } /* Changed to sage-green */
 .blog-card a.blog-link-wrapper:hover .blog-link { text-decoration: underline; }
 
 .contact-form { background: var(--white); padding: var(--spacing-2xl); border-radius: var(--radius-lg); box-shadow: var(--shadow-xl); display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-lg); }
 .form-group input, .form-group select, .form-group textarea { padding: var(--spacing-md); border: 2px solid var(--cream-dark); border-radius: var(--radius-sm); font-size: 1rem; }
-.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--terracotta); }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--sage-green); } /* Changed to sage-green */
 .contact-form .btn-primary { grid-column: 1 / -1; justify-self: center; }
 
 /* ===== FOOTER ===== */
-.footer { background: linear-gradient(135deg, var(--charcoal-dark), var(--terracotta-dark)); color: var(--cream); }
+.footer { background: linear-gradient(135deg, var(--charcoal-dark), var(--deep-sage)); color: var(--cream); } /* Changed to deep-sage */
 .footer-main { display: grid; grid-template-columns: 2fr 3fr; gap: var(--spacing-3xl); padding: var(--spacing-3xl) 0; }
 .footer-social a { width: 50px; height: 50px; background: rgba(255, 255, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-.footer-social a:hover { background: var(--muted-gold); color: var(--charcoal-dark); }
+.footer-social a:hover { background: var(--sage-green); color: var(--charcoal-dark); } /* Changed to sage-green */
 .footer-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-xl); }
 .footer-column ul { list-style: none; }
-.footer-column a:hover { color: var(--muted-gold); }
+.footer-column a:hover { color: var(--sage-green); } /* Changed to sage-green */
 .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); padding: var(--spacing-lg) 0; text-align: center; }
 
 /* ===== BLOG MODAL STYLES ===== */
@@ -584,3 +598,39 @@ a {
 /* GLightbox Override */
 .portfolio-item a.glightbox { cursor: pointer; }
 .gnext, .gprev, .gclose { pointer-events: auto !important; visibility: visible !important; opacity: 1 !important; }
+/* ===== NEW CONTACT DETAILS BOX ===== */
+.contact-details-box {
+    background: var(--white);
+    padding: var(--spacing-2xl);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    max-width: 800px;
+    margin: var(--spacing-2xl) auto 0 auto; /* Adds space above it and centers it */
+    text-align: center;
+}
+
+.contact-details-box h3 {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    color: var(--charcoal-dark);
+    margin-bottom: var(--spacing-md);
+}
+
+.contact-details-box p {
+    font-size: 1.125rem;
+    color: var(--charcoal-light);
+    margin-bottom: var(--spacing-sm);
+    display: flex; /* Helps align icon and text */
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-details-box p:last-child {
+    margin-bottom: 0;
+}
+
+.contact-details-box i {
+    color: var(--sage-green); /* Uses your new theme color */
+    margin-right: var(--spacing-sm);
+    width: 20px; /* Aligns the text neatly */
+}
