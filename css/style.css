@@ -329,7 +329,7 @@ a {
     background-size: 300px; 
     
     /* CORRECTED: Opacity must be between 0.0 and 1.0 */
-    opacity: 1; /* Set to a subtle 10% visibility */
+    opacity: 0.1; /* Set to a subtle 10% visibility */
 
     /* CORRECTED: z-index must be an integer */
     z-index: 1; /* Bottom layer */
@@ -513,7 +513,7 @@ a {
     background-image: url('../images/living-room-before.png'); 
 }
 .image-after { 
-    background-image: url('../images/living-room-after.png'); 
+    background-image: url('../images/living-room-afternew.png'); 
     clip-path: inset(0 50% 0 0); 
 }
 .slider-handle { 
